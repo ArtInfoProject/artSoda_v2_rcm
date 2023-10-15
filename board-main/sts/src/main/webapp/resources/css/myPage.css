@@ -1,0 +1,219 @@
+/* Prevent line breaks */
+body {
+  white-space: nowrap;
+  overflow-x: scroll;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/*  타이포 그래피  */
+#contents h4.tle_h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 1% 31%;
+  position: relative;
+  padding-left: 14px;
+}
+h4.tle_h4 {
+  line-height: 1.333;
+  padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+  }
+h4.tle_h4 {
+  display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+/* 타이포 마크 */
+h4.tle_h4:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 9px;
+  height: 17px;
+  background:#0ac2ff;
+  border-radius: 6px;
+}
+
+/* 내부 바디 */
+.inner_contents {
+  margin: 0 30%;
+  border: 1px solid #c6c6c6;
+  border-radius: 7px;
+  box-shadow: 0 5px 8px 0 rgba(68, 68, 68, 0.04);
+  padding: 2.5%;
+}
+
+/* 내부 바디의 내용 행 */
+.contents_row {
+  padding: 3% 3%;
+  margin: 3% 0%;
+}
+
+/* 안내 메시지 */
+.message {
+  font-size: 9pt;
+  padding-left: 20px;
+  color: #898989;
+}
+
+/* 강조 표시 */
+em {
+  color: #007cc4;
+  font-style: normal;
+  margin-right: 10px;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/* 폼 요소 스타일 */
+.form {
+  height: 25px;
+  width: 200px;
+  color: #495057;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  box-sizing: border-box;
+  border-radius: 1px;
+}
+
+.form-callphone {
+  height: 25px;
+  width: 50px;
+  color: #495057;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  box-sizing: border-box;
+  border-radius: 1px;
+}
+
+.form-control_col{
+  border-radius: 1px;
+  height: 25px;
+  width: 50px;
+  color: #495057;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  box-sizing: border-box;
+
+}
+.doubleCheck {
+  margin-left: 5px;
+}
+
+
+
+/* 버튼 */
+
+button,input[type='button'],input[type='submit'],input[type='reset'],input[type='image']{
+  overflow:visible;
+  cursor:pointer;
+}
+
+html input[type='button'], 
+button,button[class*='btn'],button[type='submit'],button[type='reset'],
+a[class*='btn']{
+  -webkit-border-radius:0;
+  -webkit-appearance:none; 
+  padding:8px 12px; 
+  border:1px solid #999;
+  background-color:#eee; 
+  color:#333; line-height:1.333; 
+  white-space:nowrap;
+}
+
+a[class*='btn'],
+html input[class*='btn'],
+button[class*='btn'],
+.btn{
+  display:inline-block;
+  position:relative; 
+  box-sizing:border-box;
+  max-width:100%; 
+  border-radius:3px; 
+  border:1px solid transparent;
+  border-color:#999; 
+  background-color:#fff; 
+  color:#000; font-size:1em; 
+  text-decoration:none; 
+  text-align:center; 
+  transition:.2s ease-out;
+  -webkit-appearance:none;
+  -moz-appearance:none;}
+
+.btn {
+  border-color:#999;
+  background-color:#fff;
+  color:#333;
+  }
+
+.btn:active, .btn:focus, .btn:hover {
+  color: #333; 
+  background-color: #e6e6e6; 
+  border-color: #adadad;
+}
+  /* 변경 버튼 */
+.btn.btn01{
+  border-color:#0ac2ff;
+  background-color:#0ac2ff;
+  color:#fff;  
+  margin-right:14.5px; 
+}
+
+.btn.btn01:active, .btn.btn01:focus, .btn.btn01:hover {
+  color: #fff; 
+  background-color:#0a2963;
+ }
+ /* 취소 버튼 */
+.btn.btn02{
+  color:#0c3681; 
+  background-color: #fff; 
+  border-color: #0c3681;
+}
+
+.btn.btn02:active, .btn.btn02:focus, .btn.btn02:hover {
+  background-color: #f0f4fb; 
+}
+/* 탈퇴 버튼 */
+.btn.btn03{
+  color: #fff;  
+  background-color: #FF857E; 
+  border-color: #FF857E; 
+  margin-right:14.5px;
+}
+
+.btn.btn03:active, .btn.btn03:focus, .btn.btn03:hover {
+  color: #ff6e66; 
+  background-color: #ffdbda; 
+}
+
+.btn.btn_lg{
+  height:auto;
+  padding:0.6em 2em 0.6em;
+  font-size:1.286em;
+  line-height:normal;
+}
+
+.btn.btn_sm{
+  height:auto;
+  padding:.3em .333em .333em;
+  font-size:0.929em;
+  line-height:normal;
+}
+
+.btn.btn_wide {
+  display: block; 
+  width: 100%;
+}
+
+.btn_myPage {
+  margin: 10% 20% 0% 20%;
+}

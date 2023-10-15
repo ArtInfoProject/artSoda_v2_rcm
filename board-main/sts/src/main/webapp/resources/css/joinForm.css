@@ -1,0 +1,109 @@
+/* Prevent line breaks */
+body {
+  white-space: nowrap;
+  overflow-x: scroll;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 타이포 마크 */
+h4.memberJoin:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 9px;
+  height: 17px;
+  background: #FF857E;
+  border-radius: 6px;
+}
+
+/* 타이포 그래피 */
+.contents .memberJoin {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 1% 31%;
+  position: relative;
+  padding-left: 14px;
+}
+
+/* 내부 바디 */
+.inner_contents {
+  margin: 0 30%;
+  border: 1px solid #c6c6c6;
+  border-radius: 7px;
+  box-shadow: 0 5px 8px 0 rgba(68, 68, 68, 0.04);
+  padding: 2.5%;
+}
+
+/* 내부 바디의 내용 행 */
+.contents_row {
+  padding: 3% 3%;
+}
+
+/* 링크 스타일 */
+.a {
+  padding-left: 1%;
+  padding-right: 0.5%;
+}
+
+/* 강조 표시 */
+em {
+  color: #007cc4;
+  font-style: normal;
+  margin-right: 10px;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/* 폼 요소 스타일 */
+.form {
+  height: 25px;
+  width: 200px;
+  color: #495057;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  box-sizing: border-box;
+}
+
+/* 안내 메시지 */
+.message {
+  font-size: 9pt;
+  padding-left: 20px;
+  color: #898989;
+}
+
+/* 버튼 스타일 */
+.btn_join {
+  margin: 1% 46%;
+}
+
+.doubleCheck {
+  margin-left: 5px;
+}
+
+.btn_submit,
+.btn_cancel {
+  border-radius: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  font-weight: 650;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.btn_submit {
+  border-color: #0ac2ff;
+  background-color: #0ac2ff;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.btn_cancel {
+  margin-left: 20px;
+  border-color: #dddddd;
+  background-color: #cfcfcf;
+  color: #fff;
+  border: 1px solid transparent;
+}

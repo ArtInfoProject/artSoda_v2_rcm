@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- artist_board 관련 sql -->
+<mapper namespace="artist">
+   <select id="list" resultType = "com.art.project.artist.dto.ArtistDTO">
+      select artist_idx
+            , artist_name
+            , artist_note
+            , artist_career
+            , artist_photo
+            , artist_nationality
+            , artist_edu
+      from artist_board
+   </select>
+   
+   <select id="detail_artist" resultType="com.art.project.artist.dto.ArtistDTO" parameterType="com.art.project.artist.dto.ArtistDTO">
+       SELECT a.artist_idx 
+           , a.artist_name
+           , a.artist_note
+           , a.artist_career 
+           , a.artist_photo 
+           , a.artist_nationality 
+           , a.artist_edu 
+       FROM artist_board a
+       WHERE a.artist_idx = #{artist_idx}
+   </select>
+   
+   <select id="detail_picture" resultType="com.art.project.artist.dto.ArtistDTO" parameterType="com.art.project.artist.dto.ArtistDTO">
+       SELECT p.picture_file 
+         , p.picture_title 
+           , p.picture_idx 
+           , p.picture_size 
+           , p.picture_supplies 
+       FROM artist_pictures p
+       WHERE p.artist_idx = #{artist_idx}
+   </select>
+    
+    <insert id="artist_write" parameterType="com.art.project.artist.dto.ArtistDTO">
+      insert into artist_board (artist_name, artist_nationality, artist_edu, artist_career, artist_note, artist_photo, artist_idx, artistThumbImg )
+      values (#{artist_name}, #{artist_nationality}, #{artist_edu}, #{artist_career}, #{artist_note}, #{artist_photo}, #{artist_idx}, #{artistThumbImg})
+      <selectKey resultType="int" order="AFTER" keyProperty="artist_idx">
+           SELECT LAST_INSERT_ID()
+       </selectKey>
+   </insert>
+   
+    <insert id="pictures_write" parameterType="com.art.project.artist.dto.ArtistDTO">
+       insert into artist_pictures (picture_title, picture_size, picture_supplies, picture_file, artist_idx, pictureThumbImg)
+       values (#{picture_title}, #{picture_size}, #{picture_supplies}, #{picture_file}, #{artist_idx}, #{pictureThumbImg})
+       
+   </insert>
+   
+    <update id="update_artist" parameterType="com.art.project.artist.dto.ArtistDTO">
+       update artist_board
+       set artist_name = #{artist_name}
+          , artist_idx = #{artist_idx}
+          , artist_nationality = #{artist_nationality}
+          , artist_edu = #{artist_edu}
+          , artist_career = #{artist_career}
+          , artist_note = #{artist_note}
+          , artist_photo = #{artist_photo}
+          , artistThumbImg = #{artistThumbImg}
+       where artist_idx = #{artist_idx}
+    </update>
+    
+    <update id="update_pictures" parameterType="com.art.project.artist.dto.ArtistDTO">
+       update artist_pictures
+       set picture_title = #{picture_title}
+          , picture_file = #{picture_file}
+          , picture_idx = #{picture_idx}
+          , picture_supplies = #{picture_supplies}
+          , picture_size = #{picture_size}
+          , pictureThumbImg = #{pictureThumbImg}
+       where artist_idx = #{artist_idx}
+    </update>
+    
+   <select id="selectOnePicture" resultType="com.art.project.artist.dto.ArtistDTO" parameterType="com.art.project.artist.dto.ArtistDTO">
+       SELECT p.artist_idx
+          , p.picture_title
+           , p.picture_file
+           , p.picture_idx 
+           , p.picture_supplies 
+           , p.picture_size 
+       FROM artist_pictures p
+       WHERE p.picture_idx = #{picture_idx}
+   </select>
+   
+    <delete id="artistDelete">
+       DELETE from artist_board
+       WHERE artist_idx = #{artist_idx}
+    </delete>
+    
+    <delete id="pictureDelete" parameterType="com.art.project.artist.dto.ArtistDTO">
+       DELETE from artist_pictures
+       WHERE picture_idx = #{picture_idx} AND artist_idx = #{artist_idx};
+    </delete>
+    
+    <!-- 게시물 총 갯수 -->
+   <select id="count" resultType="int">
+       select 
+             count(artist_idx)
+       from artist_board
+   </select>
+    
+    <select id="listPage" parameterType="hashMap" resultType="com.art.project.artist.dto.ArtistDTO">
+    select
+        artist_idx
+        , artist_name
+        , artist_note
+        , artist_career
+        , artist_photo
+        , artist_nationality
+    from artist_board
+       order by artist_idx DESC
+        limit #{displayPost}, #{postNum}
+   </select>
+   
+   <!-- 게시물 목록 + 페이징 + 검색 -->
+   <select id="artistSearch" parameterType="hashMap" resultType="com.art.project.artist.dto.ArtistDTO">
+       select
+              artist_idx
+              , artist_name
+              , artist_nationality
+              , artist_photo
+       from artist_board
+       
+       <if test='searchType.equals("name")'>
+        WHERE artist_name LIKE CONCAT('%', #{keyword}, '%')
+       </if>
+       
+       <if test='searchType.equals("nationality")'>
+        WHERE artist_nationality LIKE CONCAT('%', #{keyword}, '%')
+       </if>
+          order by artist_idx DESC
+              limit #{displayPost}, #{postNum}
+   </select> 
+   
+   <select id="searchCount" parameterType="hashMap" resultType="int">
+    select count(artist_idx) from artist_board  
+      
+       <if test='searchType.equals("name")'>
+        WHERE artist_name LIKE CONCAT('%', #{keyword}, '%')
+       </if>
+       
+       <if test='searchType.equals("nationality")'>
+        WHERE artist_nationality LIKE CONCAT('%', #{keyword}, '%')
+       </if>
+   
+   </select>
+</mapper>

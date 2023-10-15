@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+
+}
+
+ul {
+    justify-content: center;
+    text-align: center;
+    margin: 5vh 0;
+    padding: 15vh 0;
+    background: linear-gradient(0deg,#E6D9D7,#E1DDDC);
+}
+
+li {
+    margin-top: 1vh;
+}
+
+.title p {
+    font-weight: bolder;
+    font-size: 6vh;
+    margin-bottom: 2vh;
+    color:  #565656;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.name p {
+    font-weight: bold;
+    font-size: 3vh;
+    font-family: 'Orbit', sans-serif;
+    color: #756d6d;
+}
+
+
+.ppl_f {
+    margin-top: 3vh;
+    font-size: 2.3vh;
+    font-family: 'Hahmlet', serif;
+    color: #54493f;
+    font-weight:100;
+}
+
+.ppl {
+    font-size: 2.3vh;
+    font-family: 'Hahmlet', serif;
+    font-weight:100;
+    color: #54493f;
+}
+
+.teamPosition {
+    font-weight:400;
+    color: #54493f;
+}

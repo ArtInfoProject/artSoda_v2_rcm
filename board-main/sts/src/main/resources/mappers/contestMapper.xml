@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="contest">
+	<select id="list" resultType = "com.art.project.contest.dto.ContestDTO">
+		select
+			contest_title
+			, contest_start
+			, contest_end
+			, contest_region
+			, contest_location
+			, contest_idx
+			, contest_registDate
+			, contest_url
+			, contest_file
+			, contest_contents
+			, contest_writer
+			, contest_status	
+		from contest_board
+	</select>
+	
+	<select id="detail" resultType = "com.art.project.contest.dto.ContestDTO">
+		select
+			contest_title
+			, contest_start
+			, contest_end
+			, contest_region
+			, contest_location
+			, contest_idx
+			, contest_registDate
+			, contest_url
+			, contest_file
+			, contest_contents
+			, contest_writer	
+			, contestThumbImg	
+			, contest_status	
+		from contest_board
+		where contest_idx = #{contest_idx}
+	</select>
+	
+	<insert id="write">
+		insert into contest_board (contest_title, contest_url, contest_start, contest_end, contest_region, contest_location, contest_contents, contest_file, contest_writer, contestThumbImg)
+		values (#{contest_title}, #{contest_url}, #{contest_start}, #{contest_end}, #{contest_region}, #{contest_location}, #{contest_contents}, #{contest_file}, #{contest_writer}, #{contestThumbImg})
+	</insert>
+
+	<update id="update">
+		update contest_board
+			set	contest_title = #{contest_title}
+				, contest_url = #{contest_url}
+				, contest_start = #{contest_start}
+				, contest_end = #{contest_end}
+				, contest_region = #{contest_region}
+				, contest_location = #{contest_location}
+				, contest_contents = #{contest_contents}
+				, contest_file = #{contest_file}
+				, contest_writer = #{contest_writer}	
+				, contestThumbImg = #{contestThumbImg}	
+		where contest_idx = #{contest_idx} 
+	</update>
+	
+	<delete id="delete">
+		delete from contest_board
+		where contest_idx = #{contest_idx}
+	</delete>
+	
+	<select id="count" resultType="int">
+		select
+			count(contest_idx)
+		from contest_board
+	</select>
+	
+	<select id="listPage" parameterType="hashMap" resultType="com.art.project.contest.dto.ContestDTO">
+		select
+			contest_title
+			, contest_start
+			, contest_end
+			, contest_region
+			, contest_location
+			, contest_idx
+			, contest_registDate
+			, contest_url
+			, contest_file
+			, contest_contents	
+			, contest_status	
+		from contest_board
+		order by contest_idx DESC
+		limit #{displayPost}, #{postNum}
+	</select>
+	
+		<select id="listPageSearch" parameterType="hashMap" resultType="com.art.project.contest.dto.ContestDTO">
+		select
+			contest_title
+			, contest_start
+			, contest_end
+			, contest_region
+			, contest_location
+			, contest_idx
+			, contest_registDate
+			, contest_url
+			, contest_file
+			, contest_contents	
+			, contest_writer	
+			, contest_status	
+		from contest_board
+		<if test='searchType.equals("comm-title")'>
+		  WHERE contest_title LIKE CONCAT('%', #{keyword}, '%')
+		 </if>
+		 <if test='searchType.equals("comm-content")'>
+		  WHERE contest_contents LIKE CONCAT('%', #{keyword}, '%')
+		 </if> 
+		 <if test='searchType.equals("comm-writer")'>
+		  WHERE contest_writer LIKE CONCAT('%', #{keyword}, '%')
+		 </if>
+ 
+ 		order by contest_end DESC
+ 			 limit #{displayPost}, #{postNum}
+	</select>
+	<!-- 게시물 총 갯수 + 검색 적용 -->
+   <select id="searchCount" parameterType="hashMap" resultType="int">
+    select count(contest_idx) from contest_board  
+     
+       <if test='searchType.equals("comm-title")'>
+        WHERE contest_title LIKE CONCAT('%', #{keyword}, '%')
+       </if>
+       
+       <if test='searchType.equals("comm-content")'>
+        WHERE contest_contents LIKE CONCAT('%', #{keyword}, '%')
+       </if>
+       
+       <if test='searchType.equals("comm-writer")'>
+        WHERE contest_writer LIKE CONCAT('%', #{keyword}, '%')
+         </if>
+   </select>
+	
+</mapper>

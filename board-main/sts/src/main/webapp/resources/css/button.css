@@ -1,0 +1,32 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.radio-button {
+  display: flex;
+  margin: 0 40%;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + li {
+  background-color: #ffcc00;
+  border-color: #ffcc00;
+  color: white;
+}

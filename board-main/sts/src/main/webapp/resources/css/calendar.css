@@ -1,0 +1,16 @@
+td {
+  width: 100px;
+  height: 100px;
+}
+
+.Calendar { 
+  text-align: center;
+  margin: 0 auto; 
+  font-family:'Times New Roman', Times, serif
+}
+
+.Calendar>thead>tr:first-child>td { font-weight: bold; }
+
+    
+
+

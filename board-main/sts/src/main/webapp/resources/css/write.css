@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+#board-catetory {
+	border-bottom: solid 1px #b8b8b8;
+	text-align: center;
+	margin-bottom: 2vh;
+}
+
+#board-catetory p {
+	padding: 5px;
+	font-size: 30px;
+	font-weight: 800;
+}
+
+#writeBody {
+	/* background-color: #f5f5f5; */
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+#writeBody form {
+	/* background-color: #fff; */
+	padding: 40px;
+	border-radius: 5px;
+	width: 60%;
+	/* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+	/* width: 600px; */
+}
+
+#writeBody label {
+	display: block;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+input[type="text"], input[type="url"], input[type="date"], textarea,
+	select {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+select {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	background-color: #fff;
+}
+
+.date-range {
+	display: flex;
+	align-items: center;
+}
+
+textarea {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	resize: vertical;
+}
+
+.button-container {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 20px;
+}
+
+.button-container button {
+	padding: 10px 20px;
+	background-color: #0ac2ff;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+.button-container button[type="reset"] {
+	background-color: #a6a6a6;
+}
+.button-container .del {
+	background-color: #a6a6a6;
+}
+.button-container .del a{
+	color: #fff;
+}
+.del:hover a {
+    color: black;
+  }
+.button-container button[type="button"] {
+	background-color: #f46d66;
+}
+
+.button-container button:hover {
+	background-color: #fff;
+	border: 1px solid #6c757d;
+	color:black;
+}
+
+.select_img {
+	width:50px;
+	margin:20px 0;
+}
+div.editable {
+    width: 1150px;
+    height: 500px;
+    border: 1px solid #dcdcdc;
+    overflow-y: auto;
+}
+.oriImg {
+        max-width: 250px;
+        height: auto; /* 높이를 자동으로 조절하여 비율 유지 */
+    }

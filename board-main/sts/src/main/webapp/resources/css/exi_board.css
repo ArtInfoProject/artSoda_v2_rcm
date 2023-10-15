@@ -1,0 +1,158 @@
+@charset "UTF-8";
+
+body #board-catetory {
+    margin: 10vh 16vh 3vh;
+    border-bottom: solid 2px #b8b8b8;
+    padding-bottom: 1vh;
+}
+
+#board-catetory span {
+    padding: 5px;
+    font-size: 25px;
+    font-weight: 800;
+    color: #4b4b4b;
+}
+#board-catetory .cate {
+    padding: 5px;
+    font-size: 25px;
+    font-weight: 800;
+    color: #009dff;
+}
+.gallery {
+    margin: 0 50vh;
+    margin-bottom: 5vh;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-content: center;
+}
+
+.grid-item {
+    position: relative;
+    margin: 5vh 5vh;
+
+}
+
+.grid-item img {
+    /* width: 100%; */
+    width: 30vh;
+    height: 40vh;
+    /* height: auto; */
+    display: block;
+    /* border: #4b4b4b solid 1px */
+}
+
+.item-label {
+    margin-top: 2vh;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: hotpink;
+    padding: 5px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.item-label2 {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: hotpink;
+    padding: 5px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.list {
+    width: 100%;
+    margin-bottom: 5vh;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.list a {
+    background-color: #0af;
+    border-radius: 5px 5px;
+    color: #fff;
+    text-align: center;
+    padding: 1.5vh 4vh;
+    margin-right: 22vh;
+}
+#search-comm {
+    margin: 5vh 0 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#search-comm select {
+    height: 5vh;
+    font-size: medium;
+    padding: 3px 3px;
+}
+
+option {
+    padding: 3px 3px;
+    font-size: medium;
+}
+
+#search-comm input {
+    height: 5vh;
+    margin: 0 2px;
+    width: 50vh;
+    font-size: medium;
+    padding: 3px 3px;
+}
+
+input[type="text"]::placeholder {
+    text-align: center;
+}
+
+#search-comm button {
+    height: 5vh;
+    width: 7vh;
+    background-color: #00d3ff;
+    color: #fff;
+    border-style: none;
+    padding: 5px 5px;
+    font-size: small;
+    font-weight: 650;
+    border-radius: 3px;
+}
+
+.pagination {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    margin: 0 0 10vh;
+}
+
+.pagination a {
+    color: #777777;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    /* Display as flex for centering text */
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border: solid 1px #777777;
+    border-radius: 5px;
+}
+
+.pagination a.active {
+    background-color: #ff857f;
+    border-color: #ff857f;
+    color: white;
+
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}

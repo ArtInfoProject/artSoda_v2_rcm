@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- community_board 관련 sql -->
+<mapper namespace="community">
+	
+	<select id="list" resultType="com.art.project.community.dto.CommunityDTO">
+		select
+			community_idx
+			, community_title
+			, member_name
+			, community_registDate
+			, community_contents
+			, community_category
+			, community_file
+			, community_hits
+		from community_board
+	</select>
+
+	<insert id="write">
+			insert into community_board(community_title, community_contents, community_category, member_name)
+			 values (#{community_title}, #{community_contents}, #{community_category}, #{member_name});
+	</insert>
+	
+	<update id="update">
+		update community_board
+		set community_category = #{community_category}
+			, community_title = #{community_title}
+			, community_contents = #{community_contents}
+		where community_idx = #{community_idx} 
+	</update>
+	
+	<select id="detail" resultType="com.art.project.community.dto.CommunityDTO">
+		select community_title
+				, community_category
+				, community_idx
+				, member_name
+				, community_registDate
+				, community_contents
+				, community_hits
+				, community_url
+				, community_file
+				, community_url
+		from community_board where community_idx = #{community_idx}
+	</select>
+	
+	<delete id="delete">
+		delete from community_board
+		where community_idx = #{community_idx}
+	</delete>
+	
+	<update id="incrementHitCount">
+		update community_board
+		set community_hits = community_hits + 1
+		where community_idx = #{community_idx}
+	</update>
+	
+	<select id="count" resultType="int">
+		select
+				count(community_idx)
+		from community_board
+	</select>
+	
+	<select id="listPage" parameterType="hashMap" resultType="com.art.project.community.dto.CommunityDTO">
+		select
+				community_idx
+				, community_category
+				, community_title
+				, member_name
+				, community_registDate
+				, community_hits
+		from community_board
+		order by community_idx DESC
+			limit #{displayPost}, #{postNum}
+	</select>
+	
+	<!-- 	검색기능 -->
+	<select id="communitySearch" parameterType="hashMap" resultType="com.art.project.community.dto.CommunityDTO">
+		select
+				community_idx
+				, community_category
+				, community_title
+				, community_contents
+				, member_name
+				, community_registDate
+				, community_hits
+		from community_board
+		  where community_category LIKE CONCAT('%', #{category}, '%')
+		<if test='searchType.equals("title")'>
+		  and community_title LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+		<if test='searchType.equals("content")'>
+		  and community_contents LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+		<if test='searchType.equals("title_content")'>
+		  and community_title LIKE CONCAT('%', #{keyword}, '%') 
+		   or community_contents LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+		<if test='searchType.equals("writer")'>
+		  and member_name LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+			order by community_idx DESC
+				limit #{displayPost}, #{postNum}
+	</select>
+	
+	<!-- 게시물 총 갯수 + 검색 적용 -->
+	<select id="searchCount" parameterType="hashMap" resultType="int">
+	 select count(community_idx) from community_board
+	 	 where community_category LIKE CONCAT('%', #{category}, '%')
+		<if test='searchType.equals("title")'>
+		  and community_title LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+		<if test='searchType.equals("content")'>
+		  and community_contents LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+		<if test='searchType.equals("title_content")'>
+		  and community_title LIKE CONCAT('%', #{keyword}, '%') 
+		   or community_contents LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+		<if test='searchType.equals("writer")'>
+		  and member_name LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+	</select>
+	
+</mapper>

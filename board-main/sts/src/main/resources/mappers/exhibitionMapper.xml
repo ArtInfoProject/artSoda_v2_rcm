@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="exhibition">
+	<!-- board 관련 sql -->
+
+	<select id="list" resultType="com.art.project.exhibition.dto.ExhibitionDTO">
+		select
+		exhibition_idx
+		, exhibition_title
+		, exhibition_start
+		, exhibition_end
+		, exhibition_region
+		, exhibition_location
+		, exhibition_img
+		, exhibition_contents
+		, exhibition_url
+		, exhibition_category
+		, exhibition_registDate
+		, exhibition_hits
+		from exhibition_board order by exhibition_end DESC
+	</select>
+
+	<select id="detail" resultType="com.art.project.exhibition.dto.ExhibitionDTO">
+		select
+		exhibition_idx
+		, exhibition_title
+		, exhibition_registDate
+		, exhibition_writer
+		, exhibition_category
+		, exhibition_url
+		, exhibition_start
+		, exhibition_end
+		, exhibition_region
+		, exhibition_location
+		, exhibition_contents
+		, exhibition_hits
+		, exhibition_img
+		, exhibitionThumbImg
+		from exhibition_board
+		where exhibition_idx =
+		#{exhibition_idx}
+	</select>
+
+	<update id="update">
+		update exhibition_board
+		set exhibition_category = #{exhibition_category}
+		, exhibition_title = #{exhibition_title}
+		, exhibition_url = #{exhibition_url}
+		, exhibition_start = #{exhibition_start}
+		, exhibition_end = #{exhibition_end}
+		, exhibition_region = #{exhibition_region}
+		, exhibition_location = #{exhibition_location}
+		, exhibition_contents = #{exhibition_contents}
+		, exhibition_img = #{exhibition_img}
+		, exhibitionThumbImg = #{exhibitionThumbImg}
+		, exhibition_writer = #{exhibition_writer}
+		where exhibition_idx = #{exhibition_idx}
+	</update>
+
+	<insert id="write">
+		insert into exhibition_board(exhibition_category,
+		exhibition_title, exhibition_url, exhibition_start, exhibition_end,
+		exhibition_region, exhibition_location, exhibition_contents,
+		exhibition_img, exhibitionThumbImg, exhibition_writer)
+		values(#{exhibition_category}, #{exhibition_title},
+		#{exhibition_url}, #{exhibition_start}, #{exhibition_end},
+		#{exhibition_region}, #{exhibition_location}, #{exhibition_contents},
+		#{exhibition_img}, #{exhibitionThumbImg}, #{exhibition_writer})
+	</insert>
+
+	<delete id="delete">
+		delete from exhibition_board
+		where exhibition_idx =
+		#{exhibition_idx}
+	</delete>
+
+	<select id="count" resultType="int">
+		select
+		count(exhibition_idx)
+		from
+		exhibition_board
+	</select>
+
+	<select id="listPage" parameterType="hashMap" resultType="com.art.project.exhibition.dto.ExhibitionDTO">
+		select
+		exhibition_idx
+		, exhibition_title
+		, exhibition_writer
+		,
+		exhibition_img
+		, exhibition_registDate
+		, exhibition_start
+		,
+		exhibition_end
+		, exhibition_hits
+		from exhibition_board
+		order by
+		exhibition_idx DESC
+		limit #{displayPost}, #{postNum}
+	</select>
+
+	<!-- 검색기능 -->
+	<select id="exhibitionSearch" parameterType="hashMap" resultType="com.art.project.exhibition.dto.ExhibitionDTO">
+		select
+		exhibition_idx
+		, exhibition_category
+		, exhibition_title
+		, exhibition_contents
+		, exhibition_registDate
+		, exhibition_hits
+		, exhibition_start
+		, exhibition_end
+		, exhibition_img
+		, exhibition_status
+		from exhibition_board 
+
+		where exhibition_category LIKE CONCAT('%', #{category}, '%') and exhibition_status LIKE CONCAT('%', #{status},'%')
+		
+		<if test='searchType.equals("title")'>
+			and exhibition_title LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+
+		<if test='searchType.equals("writer")'>
+			and exhibition_writer LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+
+		<if test='searchType.equals("content")'>
+			and exhibition_contents LIKE CONCAT('%', #{keyword},
+			'%')
+		</if>
+
+		order by exhibition_end DESC
+		limit #{displayPost}, #{postNum}
+
+	</select>
+
+	<!-- 게시물 총 갯수 + 검색 적용 -->
+	<select id="searchCount" parameterType="hashMap"
+		resultType="int">
+		select count(exhibition_idx) from exhibition_board
+		where exhibition_category LIKE CONCAT('%', #{category}, '%')and exhibition_status LIKE CONCAT('%', #{status},'%')
+		
+		<if test='searchType.equals("title")'>
+			and exhibition_title LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+
+		<if test='searchType.equals("content")'>
+			and exhibition_contents LIKE CONCAT('%', #{keyword},
+			'%')
+		</if>
+
+		<if test='searchType.equals("title_content")'>
+			and exhibition_title LIKE CONCAT('%', #{keyword}, '%')
+			or exhibition_contents LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+	
+	</select>
+
+</mapper>

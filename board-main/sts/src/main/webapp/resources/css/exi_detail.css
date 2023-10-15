@@ -1,0 +1,212 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+body .ex_detail_header {
+    margin: 10vh 20vh 0;
+    border-bottom: solid 2px #b8b8b8;
+}
+
+.ex_detail_header p:nth-child(1) {
+    padding: 5px;
+    font-size: 30px;
+    font-weight: 800;
+    color: #4b4b4b;
+    text-align: center;
+    margin-bottom: 2vh;
+}
+.ex_detail_header p:nth-child(2){
+	font-size: 15px;
+	text-align: right;
+	margin-bottom: .7vh;
+}
+.ex_detail_contents {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 20vh;
+
+}
+
+.ex_detail_contents img {
+    margin: 5vh 0;
+    width: 70vh;
+    height: 90vh;
+    align-items: center;
+}
+
+.deadline {
+    font-weight: bolder;
+}
+
+.deadline_t {
+    font-style: italic;
+}
+
+.location {
+    font-weight: bold;
+}
+
+.ex_detail_content_long {
+    text-align: center; /* 텍스트 가운데 정렬 */
+    white-space: pre-line;
+    margin-bottom: 3vh;
+    line-height: 1.5;
+}
+
+.ex_detail_content_long img {
+    max-width: 500px;
+    height: auto;
+}
+
+button {
+    margin-right: 20vh;
+    padding: 5px 10px;
+    font-size: 13px;
+    margin-bottom: -3vh;
+}
+
+.files,
+.article {
+    margin: 0 20vh 5vh;
+}
+
+.files table {
+    width: 100%;
+    border: 1px solid #b8b8b8;
+    border-collapse: collapse;
+    margin-bottom: 4vh;
+}
+
+td {
+    padding: 2vh;
+}
+
+.files table tr:nth-child(1) {
+    background-color: #ddd;
+}
+
+.col-date {
+    text-align: right;
+}
+
+.article table {
+    width: 100%;
+    border-top: 1px solid #777777;
+    border-collapse: collapse;
+    /* margin-top: 20px; */
+}
+
+.article table,
+.article td {
+    border-bottom: 1px solid #777777;
+    padding: 3vh;
+    color: #777777;
+    font-weight: bold;
+}
+
+.article a {
+    color: black;
+    text-decoration: none;
+}
+
+.article a:link {
+    color: black;
+    margin-right: 40vh;
+}
+
+.list_sns {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.list_sns button {
+    margin-bottom: 3vh;
+}
+
+.edit {
+    width: 100%;
+    margin-bottom: 5vh;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edit a {
+    border-radius: 30px 30px;
+    color: #fff;
+    text-align: center;
+    padding: 1.5vh 4vh;
+}
+
+.edit a:nth-child(1) {
+    background-color: #00D3ff;
+    margin-right: 2vh;
+}
+
+.edit a:nth-child(2) {
+    background-color: #a5a5a5;
+}
+.list {
+    width: 100%;
+    margin-bottom: 5vh;
+    display: flex;
+    justify-content: center;
+}
+
+
+.list a {
+    background-color: #0af;
+    border-radius: 30px 30px;
+    color: #fff;
+    text-align: center;
+    padding: 1.5vh 4vh;
+}
+.article table {
+    margin-top: 2vh;
+    width: 100%;
+    border-top: 1px solid #777777;
+    border-collapse: collapse;
+    /* margin-top: 20px; */
+}
+
+.article table,
+.article td {
+    border-bottom: 1px solid #777777;
+    padding: 3vh;
+    color: #777777;
+    font-weight: bold;
+}
+
+.article a {
+    color: black;
+    text-decoration: none;
+}
+
+.article a:link {
+    color: black;
+    margin-right: 40vh;
+}
+
+/* ex_detail.html alone css */
+.ex_details {
+    background-color: #f4f2f2;
+    margin-bottom: 2vh;
+}
+
+table tr td,
+th {
+    text-align: left;
+}
+
+th {
+    padding-left: 5vh;
+}
+a:link {
+  color : black;
+}

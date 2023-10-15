@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+body #board-catetory {
+    margin: 10vh 25vh 0;
+    border-bottom: solid 2px #b8b8b8;
+}
+
+#board-catetory p {
+    padding: 5px;
+    font-size: 30px;
+    font-weight: 800;
+    color: #4b4b4b;
+}
+
+#table-container {
+    flex-grow: 1;
+    margin: 2vh 25vh;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.line {
+    border-bottom: 1px solid #777777;
+}
+
+td {
+    color: #777777;
+}
+
+#table-container img {
+    margin-top: 1vh;
+    width: 30vh;
+    height: 42vh;
+    margin-left: 1vh;
+}
+
+td a {
+    color: black;
+    font-weight: 700;
+    font-size: larger;
+}
+
+.contest-title {
+    padding-top: 2vh;
+}
+
+td p {
+    font-weight: 500;
+    font-size: medium;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+#search-comm {
+    margin: 18vh 0 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#searchType {
+    height: 5vh;
+    font-size: medium;
+    padding: 3px 3px;
+}
+
+option {
+    padding: 3px 3px;
+    font-size: medium;
+}
+
+#search-comm #keyword {
+    height: 5vh;
+    margin: 0 2px;
+    width: 50vh;
+    font-size: medium;
+    padding: 3px 3px;
+}
+
+input[type="text"]::placeholder {
+    text-align: center;
+}
+
+.searchBtn {
+    height: 5vh;
+    width: 7vh;
+    background-color: #00d3ff;
+    color: #fff;
+    border-style: none;
+    padding: 5px 5px;
+    font-size: small;
+    font-weight: 650;
+    border-radius: 3px;
+}
+
+.pagination {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    margin: 0 0 10vh;
+}
+
+.pagination a {
+    color: #777777;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    /* Display as flex for centering text */
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border: solid 1px #777777;
+    border-radius: 5px;
+}
+
+.pagination a.active {
+    background-color: #ff857f;
+    border-color: #ff857f;
+    color: white;
+
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.list {
+    width: 100%;
+    margin-bottom: 5vh;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 15vh;
+}
+
+.list a {
+    background-color: #0af;
+    border-radius: 5px 5px;
+    color: #fff;
+    text-align: center;
+    padding: 1.5vh 4vh;
+    margin-right: 10vh;
+}

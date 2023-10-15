@@ -1,0 +1,130 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.panel_wrap {
+  position: absolute;
+  left: 15vh;
+  right: 15vh;
+}
+
+.panel_item {
+  width: 500px;
+  margin: auto;
+  padding: 10vh 5vh 6vh 5vh ;
+  border: 1px solid #c6c6c6;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0 5px 8px 0 rgba(68, 68, 68, 0.04);
+}
+
+.id_pw_wrap .input_row:first-child {
+  border-radius: 6px 6px 0 0;
+  box-shadow: none;
+}
+.id_pw_wrap .input_row {
+  border-radius: 0 0 6px 6px;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  padding: 14px 17px 13px;
+  box-sizing: border-box;
+}
+
+.input_row {
+  padding: 14px 17px 13px;
+  border: 1px solid #dadada;
+  text-align: left;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.input_text {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: -0.5px;
+  color: #222;
+  box-sizing: border-box;
+  z-index: 4;
+}
+
+.btn_login {
+  display: block;
+  width: 100%;
+  margin-top: 50px;
+  padding: 13px 0;
+  font-size: 13pt;
+  font-weight: 650;
+  font-family: 'Nanum Gothic', sans-serif;
+  color: #fff;
+  border-radius: 8px;
+  border: solid 1px rgba(0, 0, 0, 0.15);
+  background-color: #0ac2ff;
+  box-sizing: border-box;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 5vh;
+}
+
+/* 아이디 찾기/ 비밀번호 찾기 */
+input[type=text],
+input[type=password] {
+  width: 330px;
+  height: 32px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 5px;
+}
+/* 아이디찾기 비번 찾기 */
+.find_wrap {
+  font-size: small;
+  margin-top: 410px;
+  text-align: center;
+}
+
+/* 로고 */
+.header .logo {
+  display: inline-block;
+  margin-top: 108px;
+  vertical-align: top;
+  background-position: 0 -51px;
+  background-repeat: no-repeat;
+  width: 155px;
+  height: 30px;
+  background-size: 244px 107px;
+}
+
+.header .header_inner {
+  position: relative;
+  width: 743px;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.header {
+  padding-bottom: 48px;
+  box-sizing: border-box;
+}
+
+img {
+  margin-left: -2vh;
+  margin-right: auto;
+}
+
+.id_con {
+  margin: auto;
+  width: 15px;
+  height: 16px;
+}
+.password_con {
+  margin: auto;
+  width: 15px;
+  height: 16px;
+}
