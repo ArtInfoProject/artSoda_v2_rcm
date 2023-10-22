@@ -4,10 +4,10 @@
 	prefix="sec"%>
 <div class="member">
 <sec:authorize access="!isAuthenticated()">
-	<a href="/">🏠 HOME</a> <a>|</a> <a href="/login">로그인</a> <a>|</a> <a href="/member/joinPage">회원가입</a>
+	<a href="/">HOME</a> <a>|</a> <a href="/login">로그인</a> <a>|</a> <a href="/member/joinPage">회원가입</a>
 </sec:authorize>
 <sec:authorize access="isAuthenticated()">
-<a href="/">🏠 HOME</a> <a>|</a> <a href="/logout">로그아웃</a> <a>|</a> <a href="/member/myPage">마이페이지</a>
+<a href="/">HOME</a> <a>|</a> <a href="/logout">로그아웃</a> <a>|</a> <a href="/member/myPage">마이페이지</a>
 </sec:authorize>
 </div>
 <div class="wrapper">
@@ -30,7 +30,7 @@
 		</div>
 		<div class="search">
 			<form class="naviForm">
-				<input type="search" placeholder="css no hehe..">
+				<input type="search" placeholder="전시회, 갤러리, 작가 검색">
 				<button type="submit">Search</button>
 			</form>
 		</div>

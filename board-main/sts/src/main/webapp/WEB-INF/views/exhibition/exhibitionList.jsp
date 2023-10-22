@@ -69,11 +69,11 @@
 <div>
 	<!-- 		키워드 제목, 작가이름, 내용 검색키워드쓰기 -->
 	<div id="search-comm">
-		<select name="searchType">
+		<select name="searchType" id="searchOption">
 			<option value="title">제목</option>
 			<option value="writer">작가</option>
 			<option value="content">내용</option>
-		</select> <input type="text" name="keyword">
+		</select> <input type="text" name="keyword" placeholder="검색어를 입력해주세요">
 		<button type="button" id="searchBtn1">검색</button>
 	</div>
 </div>

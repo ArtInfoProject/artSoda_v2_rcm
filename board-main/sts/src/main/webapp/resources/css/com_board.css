@@ -1,4 +1,19 @@
 @charset "UTF-8";
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: 'SUIT-Regular';
+	font-weight:normal;
+	list-style: none;
+}
 
 body #board-catetory {
 	margin: 10vh 20vh 0;
@@ -18,6 +33,15 @@ body #board-catetory {
 	align-items: flex-start;
 	margin: 10vh 20vh 0;
 }
+#side-menu ul li a {
+    background-color: #e5e5e5;
+    color: #777777;
+}
+
+#side-menu ul li a.selected {
+    background-color: #00d3ff;
+    color: #fff;
+}
 
 #side-menu {
 	margin-top: -3vh;
@@ -30,17 +54,11 @@ body #board-catetory {
 	border-bottom: #fff solid 2px;
 }
 
-#sub-cate:hover, #side-menu ul li .selected {
-	background-color: #00d3ff;
-	color: #fff;
-}
 
 #sub-cate {
 	display: block;
 	padding: 20px 30px;
 	text-decoration: none;
-	color: #777777;
-	background-color: #e5e5e5;
 	font-weight: bold;
 	transition: background-color 0.3s ease;
 	text-align: center;
@@ -107,7 +125,7 @@ a:link {
 	border-radius: 5px 5px;
 	color: #fff;
 	text-align: center;
-	padding: 1.5vh 4vh;
+	padding: 1vh 3vh;
 	margin-right: 22vh;
 }
 
@@ -122,6 +140,10 @@ a:link {
 	height: 5vh;
 	font-size: medium;
 	padding: 3px 3px;
+	border: 1px solid #D4D4D4;
+    outline: none;
+    box-shadow: none;
+    color:#B0B0B0;
 }
 
 option {
@@ -135,10 +157,14 @@ option {
 	width: 50vh;
 	font-size: medium;
 	padding: 3px 3px;
+	border: 1px solid #D4D4D4;
+    outline: none;
+    box-shadow: none;
 }
 
 input[type="text"]::placeholder {
 	text-align: center;
+	color:#D4D4D4;
 }
 
 #search-comm button {

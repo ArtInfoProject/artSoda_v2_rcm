@@ -80,8 +80,8 @@ body #board-catetory {
     border-radius: 5px 5px;
     color: #fff;
     text-align: center;
-    padding: 1.5vh 4vh;
-    margin-right: 22vh;
+    padding: 1vh 3vh;
+    margin-right: 29vh;
 }
 #search-comm {
     margin: 5vh 0 7vh;
@@ -100,17 +100,26 @@ option {
     padding: 3px 3px;
     font-size: medium;
 }
-
+#searchOption{
+	border: 1px solid #D4D4D4;
+    outline: none;
+    box-shadow: none;
+    color:#B0B0B0;
+}
 #search-comm input {
     height: 5vh;
     margin: 0 2px;
     width: 50vh;
     font-size: medium;
     padding: 3px 3px;
+    border: 1px solid #D4D4D4;
+    outline: none;
+    box-shadow: none;
 }
 
 input[type="text"]::placeholder {
     text-align: center;
+    color:#D4D4D4;
 }
 
 #search-comm button {

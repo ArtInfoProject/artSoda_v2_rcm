@@ -1,12 +1,4 @@
 @charset "UTF-8";
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-    font-family: 'Nanum Gothic', sans-serif;
-}
 
 a:link {
     color: black;
@@ -40,7 +32,7 @@ body #board-catetory {
 
 .grid-item {
     position: relative;
-    margin: 5vh 5vh;
+	margin: 5vh 5vh;
 
 }
 
@@ -76,7 +68,7 @@ body #board-catetory {
     border-radius: 5px 5px;
     color: #fff;
     text-align: center;
-    padding: 1.5vh 4vh;
+    padding: 1vh 3vh;
     margin-right: 28vh;
 }
 #search-comm {
@@ -86,6 +78,10 @@ body #board-catetory {
 }
 
 #comm-search-cate {
+	border: 1px solid #D4D4D4;
+    outline: none;
+    box-shadow: none;
+    color:#B0B0B0;
     height: 5vh;
     font-size: medium;
     padding: 3px 3px;
@@ -102,10 +98,14 @@ body #board-catetory {
     width: 50vh;
     font-size: medium;
     padding: 3px 3px;
+    border: 1px solid #D4D4D4;
+    outline: none;
+    box-shadow: none;
 }
 
 input[type="text"]::placeholder {
     text-align: center;
+    color:#D4D4D4;
 }
 
 #searchBtn {

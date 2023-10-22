@@ -1,6 +1,5 @@
 package com.art.project.artist.dao;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -70,11 +69,11 @@ public class ArtistDAOImpl implements ArtistDAO {
 
 	@Override
 	public void pictureDelete(int idx, int artist_idx) {
-		List<Integer> list = new ArrayList<Integer>();
-		list.add(idx);
-		list.add(artist_idx);
+		Map<String, Object> data = new HashMap<>();
+		data.put("picture_idx", idx);
+		data.put("artist_idx", artist_idx);
 		
-		sqlSession.delete("artist.pictureDelete", list);
+		sqlSession.delete("artist.pictureDelete", data);
 
 	}
 

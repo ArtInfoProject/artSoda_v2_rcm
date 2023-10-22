@@ -53,7 +53,11 @@ td a {
 .contest-title {
     padding-top: 2vh;
 }
-
+.conStatus{
+	font-size: small;
+    padding: 3px 4px;
+    color: white;
+}
 td p {
     font-weight: 500;
     font-size: medium;
@@ -69,12 +73,17 @@ a:link {
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 #searchType {
     height: 5vh;
     font-size: medium;
     padding: 3px 3px;
+    border: 1px solid #D4D4D4;
+    outline: none;
+    box-shadow: none;
+    color:#B0B0B0;
 }
 
 option {
@@ -88,10 +97,14 @@ option {
     width: 50vh;
     font-size: medium;
     padding: 3px 3px;
+    border: 1px solid #D4D4D4;
+    outline: none;
+    box-shadow: none;
 }
 
 input[type="text"]::placeholder {
     text-align: center;
+    color:#D4D4D4;
 }
 
 .searchBtn {
@@ -151,6 +164,6 @@ input[type="text"]::placeholder {
     border-radius: 5px 5px;
     color: #fff;
     text-align: center;
-    padding: 1.5vh 4vh;
+    padding: 1vh 3vh;
     margin-right: 10vh;
 }

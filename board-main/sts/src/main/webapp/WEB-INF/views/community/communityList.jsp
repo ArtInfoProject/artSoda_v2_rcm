@@ -5,6 +5,8 @@
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
 <link rel="stylesheet" href="${path}/resources/css/com_board.css" />
+<script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
 <div id="board-catetory">
 	<p>커뮤니티</p>
@@ -50,7 +52,7 @@
 		<option value="title">제목</option>
 		<option value="content">내용</option>
 		<option value="writer">글쓴이</option>
-	</select> <input type="text" placeholder="front no hehe.." name="keyword"
+	</select> <input type="text" placeholder="검색어를 입력해주세요" name="keyword"
 		value="${page.keyword}">
 	<button type="button" id="searchBtn">검색</button>
 </div>
@@ -77,5 +79,37 @@
 		</span>
 	</c:if>
 </div>
+<script>
+$(document).ready(function () {
+    $('#side-menu ul li a').first().addClass('selected');
+    $('#side-menu ul li a').hover(
+        function () {
+            $(this).css({ 'background-color': '#00d3ff', 'color': '#fff' });
+        },
+        function () {
+            if (!$(this).hasClass('selected')) {
+                $(this).css({ 'background-color': '#e5e5e5', 'color': '#777777' });
+            }
+        }
+    );
+    $('#side-menu ul li a').click(function (e) {
+        $('#side-menu ul li a.selected').removeClass('selected')
+            .css({ 'background-color': '#e5e5e5', 'color': '#777777' });
+
+        $(this).addClass('selected');
+        window.localStorage.setItem('selectedCategory', $(this).attr('href'));
+
+        return true;
+    });
+});
+$(document).ready(function () {
+    let selectedCategory = window.localStorage.getItem('selectedCategory');
+    if (selectedCategory) {
+        $('a[href="' + selectedCategory + '"]').addClass('selected');
+    } else {
+        $('#side-menu ul li a').first().addClass('selected');
+    }
+});
+</script>
 
 

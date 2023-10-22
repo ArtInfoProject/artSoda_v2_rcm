@@ -38,4 +38,3 @@ public class ArtistDTO {
 	
 	private String pictureThumbImg;	// 썸네일이미지
 }
-

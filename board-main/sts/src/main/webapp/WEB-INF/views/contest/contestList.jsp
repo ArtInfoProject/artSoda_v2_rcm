@@ -26,7 +26,7 @@
 						href="/contest/detail?contest_idx=${contest.contest_idx}"> <img
 							src="${contest.contest_file}" alt="">
 					</a></td>
-					<td class="contest-title"><p>${contest.contest_status}<p>
+					<td class="contest-title"><span class="conStatus">${contest.contest_status}</span><br>
 					<a href="/contest/detail?contest_idx=${contest.contest_idx}">${contest.contest_title}&nbsp;</a>
 					</td>
 				</tr>
@@ -49,7 +49,7 @@
 			<option value="comm-title">제목</option>
 			<option value="comm-content">내용</option>
 			<option value="comm-writer">글쓴이</option>
-		</select> <input type="text" placeholder="front no hehe.." name="keyword"
+		</select> <input type="text" placeholder="검색어를 입력해주세요" name="keyword"
 			id="keyword">
 		<button type="button" id="searchBtn" class="searchBtn">검색</button>
 	</div>
@@ -81,6 +81,19 @@
 	</div>
 </body>
 <script>
+window.onload = function(){
+	var statuses = document.getElementsByClassName('conStatus');
+	for(var i = 0; i<statuses.length;i++){
+		if(statuses[i].innerText === "예정") {
+	          statuses[i].style.backgroundColor = "#00C2FF";
+	      } else if(statuses[i].innerText === "마감") {
+	          statuses[i].style.backgroundColor = "#C5C5C5";
+	      } else {
+	          statuses[i].style.backgroundColor = "#FF5E5E";
+	      }
+	}
+}
+
 	document
 			.addEventListener(
 					"DOMContentLoaded",

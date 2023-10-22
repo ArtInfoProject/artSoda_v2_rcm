@@ -19,9 +19,19 @@
 	<div class="ex_detail_header">
 		<p>${detail.exhibition_title}</p>
 		<p>작성일자: ${detail.exhibition_registDate}</p>
+		<div class="edit">
+			<sec:authorize access="isAuthenticated() and hasRole('ROLE_ADMIN')">
+				<a href="/exhibition/update?exhibition_idx=${detail.exhibition_idx}"
+					role="button">수정</a>
+				<a href="/exhibition/delete?exhibition_idx=${detail.exhibition_idx}"
+					role="button">삭제</a>
+			</sec:authorize>
+		</div>
 	</div>
 	<div class="ex_detail_contents">
-		<img src="${detail.exhibition_img}" alt="Image 1">
+		<div class="whysomndiv">
+			<img src="${detail.exhibition_img}" alt="Image 1">
+		</div>	
 		<div class="ex_details">
 			<table>
 				<tr>
@@ -47,52 +57,55 @@
 			</table>
 		</div>
 		<p class="ex_detail_content_long">${detail.exhibition_contents}</p>
-
-		<div class="edit">
-			<sec:authorize access="isAuthenticated() and hasRole('ROLE_ADMIN')">
-				<a href="/exhibition/update?exhibition_idx=${detail.exhibition_idx}"
-					role="button">수정</a>
-				<a href="/exhibition/delete?exhibition_idx=${detail.exhibition_idx}"
-					role="button">삭제</a>
-			</sec:authorize>
+		<div class="rcm_container">
+            <span>이런 전시는 어떠세요?</span>
+            <div class="rmd">
+                <div class="rmd2">
+					<div class="grid-container" id="myrcm"></div>
+				</div>
+			</div>
 		</div>
 		<div class="list">
 			<a href="<c:url value='/exhibition/exhibitionList?listPageNum=1'/>">목록</a>
 		</div>
-		<div id="recommendations"></div>
-	</div>
+</div>
 <script>
-window.onload = function() {
+window.onload = function () {
     var exhibitionTitle = document.querySelector(".ex_detail_header p").innerText;
-    
+    var recommendationsDiv = document.getElementById('myrcm');
+
     fetch('http://127.0.0.1:5002/recommendations', {
         method: 'POST',
         headers: {
-        'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({ exhibition_title: exhibitionTitle })
     })
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        const recommendationsDiv = document.getElementById('recommendations');
         recommendationsDiv.innerHTML = '';
         data.forEach(recommendation => {
-        const title = recommendation.title;
-        const description = recommendation.description;
-        const titleElement = document.createElement('h3');
-        titleElement.textContent = title;
+            var gridItem = document.createElement('div');
+            gridItem.className = 'grid-item';
 
-        const descriptionElement = document.createElement('p');
-        descriptionElement.textContent = description;
-        recommendationsDiv.appendChild(titleElement);
-        recommendationsDiv.appendChild(descriptionElement);
+            var imgElement = document.createElement('img');
+            imgElement.src = recommendation.exhibition_img;
+            var titleElement = document.createElement('p');
+            titleElement.className = 'item-label';
+            titleElement.textContent = recommendation.exhibition_title;
+
+            gridItem.appendChild(imgElement);
+            gridItem.appendChild(titleElement);
+            recommendationsDiv.appendChild(gridItem);
         });
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    })
+     })
+     .catch(error => {
+         console.error('Error:', error);
+     });
 }
+
+
 </script>
 </body>
 </html>

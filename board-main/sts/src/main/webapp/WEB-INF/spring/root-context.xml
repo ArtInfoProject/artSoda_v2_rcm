@@ -42,7 +42,7 @@
 
 <!-- 업로드 패스 설정 --> 
 	<bean id="uploadPath" class="java.lang.String" >
-    	<constructor-arg value="C:/Users/whalesoft/Documents/workspace-sts-3.9.18.RELEASE/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/sts/resources" />
+    	<constructor-arg value="C:/IDEA/project/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/sts/resources" />
 	</bean>
 
 </beans>

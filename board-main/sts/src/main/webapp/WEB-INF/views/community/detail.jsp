@@ -20,6 +20,14 @@
 		<p>✍🏻${detail.member_name}</p>
 		<p>${detail.community_registDate}</p>
 	</div>
+	<div class="edit">
+			<sec:authorize access="isAuthenticated()">
+				<a href="/community/update?community_idx=${detail.community_idx}"
+					role="button">수정</a>
+				<a href="/community/delete?community_idx=${detail.community_idx}"
+					role="button">삭제</a>
+			</sec:authorize>
+		</div>
 	<div class="com_detail_content">
 		<p>${detail.community_title}</p>
 		<p class="com_detail_content_long">${detail.community_contents}</p>
@@ -51,14 +59,6 @@
 		        </c:choose>
 		    </tr>
 		</table>
-		<div class="edit">
-			<sec:authorize access="isAuthenticated()">
-				<a href="/community/update?community_idx=${detail.community_idx}"
-					role="button">수정</a>
-				<a href="/community/delete?community_idx=${detail.community_idx}"
-					role="button">삭제</a>
-			</sec:authorize>
-		</div>
 	</div>
 	<div class="article ">
 		<table>

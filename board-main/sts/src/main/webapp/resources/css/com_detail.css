@@ -1,17 +1,9 @@
 @charset "UTF-8";
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	text-decoration: none;
-	list-style: none;
-	font-family: 'Nanum Gothic', sans-serif;
-}
 
 .com_detail_header {
 	text-align: center;
-	margin: 10vh 20vh 5vh;
+	margin: 10vh 20vh 0;
 	border-bottom: solid 1px #b8b8b8;
 	justify-content: space-between;
 	align-items: center;
@@ -115,47 +107,48 @@ td {
 
 /* write */
 .list {
-	width: 100%;
-	margin-bottom: 5vh;
-	display: flex;
-	justify-content: center;
+    margin-top: 5vh;
+    width: 100%;
+    margin-bottom: 5vh;
+    display: flex;
+    justify-content: center;
 }
 
+
 .list a {
-	background-color: #0af;
-	border-radius: 30px 30px;
-	color: #fff;
-	text-align: center;
-	padding: 1.5vh 4vh;
+    background-color:#00B9F3;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    padding: 1.3vh 5vh;
 }
 
 .edit {
-	width: 100%;
-	margin-bottom: 5vh;
-	display: flex;
-	justify-content: flex-end;
+	margin-right:20vh;
+    margin-bottom: 2vh;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .edit a {
-	border-radius: 30px 30px;
-	color: #fff;
-	text-align: center;
-	padding: 1.5vh 4vh;
+	letter-spacing: 0.2em;
+    margin-top: 1vh;
+    margin-left: 10px;
+    border-radius: 30px;
+    text-align: center;
+    padding: 5px 27px;
 }
 
 .edit a:nth-child(1) {
-	background-color: #00D3ff;
-	margin-right: 2vh;
+    background-color: #898989;
+    color: #fff;
+    margin-right: 1vh;
 }
 
 .edit a:nth-child(2) {
-	background-color: #a5a5a5;
+    color: #a5a5a5;
+    border: #898989 solid 1px;
 }
-
-.edit a:hover {
-	text-decoration: none;
-}
-
 .select_img {
 	width:50px;
 	margin:20px 0;

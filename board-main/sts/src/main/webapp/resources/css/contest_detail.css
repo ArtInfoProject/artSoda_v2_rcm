@@ -51,9 +51,9 @@ body .ex_detail_header {
 
 .ex_detail_content_long {
     margin-top: 8vh;
-    text-align: center; /* 텍스트 가운데 정렬 */
     white-space: pre-line;
     margin-bottom: 3vh;
+    text-align:left;
 }
 
 button {
@@ -125,6 +125,7 @@ td {
 }
 
 .list {
+    margin-top: 5vh;
     width: 100%;
     margin-bottom: 5vh;
     display: flex;
@@ -133,35 +134,38 @@ td {
 
 
 .list a {
-    background-color: #0af;
-    border-radius: 30px 30px;
+    background-color:#00B9F3;
+    border-radius: 3px;
     color: #fff;
     text-align: center;
-    padding: 1.5vh 4vh;
-    margin-right: 5vh;
+    padding: 1.3vh 5vh;
 }
 
 .edit {
-    width: 100%;
-    margin-bottom: 5vh;
+	margin-right:20vh;
+    margin-bottom: 2vh;
     display: flex;
     justify-content: flex-end;
 }
 
 .edit a {
-    border-radius: 30px 30px;
-    color: #fff;
+	letter-spacing: 0.2em;
+    margin-top: 1vh;
+    margin-left: 10px;
+    border-radius: 30px;
     text-align: center;
-    padding: 1.5vh 4vh;
+    padding: 5px 27px;
 }
 
 .edit a:nth-child(1) {
-    background-color: #00D3ff;
-    margin-right: 2vh;
+    background-color: #898989;
+    color: #fff;
+    margin-right: 1vh;
 }
 
 .edit a:nth-child(2) {
-    background-color: #a5a5a5;
+    color: #a5a5a5;
+    border: #898989 solid 1px;
 }
 
 .article table {

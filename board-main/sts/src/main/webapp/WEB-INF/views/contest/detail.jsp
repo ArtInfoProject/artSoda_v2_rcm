@@ -20,6 +20,12 @@
 	<div class="ex_detail_header">
 		<p>${detail.contest_title }</p>
 	</div>
+	<sec:authorize access="isAuthenticated() and hasRole('ROLE_ADMIN')">
+		<div class="edit">
+			<a href="/contest/update?contest_idx=${detail.contest_idx}" >수정</a> 
+			<a href="/contest/delete?contest_idx=${detail.contest_idx}">삭제</a>
+		</div>
+	</sec:authorize>
 	<div class="ex_detail_contents">
 		<img src="${detail.contest_file}" alt="Image 1">
 		<p class="deadline">접수마감</p>
@@ -53,12 +59,6 @@
 				<td><a href="${detail.contest_url}">📰${detail.contest_url}</a></td>
 			</tr>
 		</table>
-		<sec:authorize access="isAuthenticated() and hasRole('ROLE_ADMIN')">
-		<div class="edit">
-			<a href="/contest/update?contest_idx=${detail.contest_idx}" >수정</a> 
-			<a href="/contest/delete?contest_idx=${detail.contest_idx}">삭제</a>
-		</div>
-		</sec:authorize>
 	</div>
 	<div class="article">
 		<table>

@@ -14,24 +14,23 @@
 <link rel="stylesheet" href="${path}/resources/css/artist.css" />
 <title>아티스트</title>
 </head>
-
 <body>
 	<div id="board-catetory">
 		<p>아티스트</p>
 	</div>
-	<c:forEach items="${list}" var="artist">
-		<div class="gallery">
-			<div class="grid-container">
-				<div class="grid-item">
-					<a href="/artist/detail?artist_idx=${artist.artist_idx}"> <img
-						src="${artist.artist_photo}">
-						<p class="item-label">${artist.artist_name}</p>
-						<p class="item-label2">Artist</p>
-					</a>
-				</div>
+	<div class="gallery">
+	<div class="grid-container">
+		<c:forEach items="${list}" var="artist">
+			<div class="grid-item">
+				<a href="/artist/detail?artist_idx=${artist.artist_idx}">
+					<img src="${artist.artist_photo}">
+					<p class="item-label">${artist.artist_name}</p>
+					<p class="item-label2">Artist</p>
+				</a>
 			</div>
-		</div>
-	</c:forEach>
+		</c:forEach>
+    </div>
+</div>
 	<sec:authorize access="hasRole('ROLE_ADMIN')">
 	<div class="list">
 		<a href="<c:url value='/artist/write'/>">작가등록</a>
@@ -64,12 +63,10 @@
 			<option value="name">작가</option>
 			<option value="nationality">국적</option>
 		</select>
-		 <input type="text" placeholder="front no hehe.." name="keyword"
+		 <input type="text" placeholder="검색어를 입력해주세요" name="keyword"
 			value="${page.keyword}">
 		<button type="button" id="searchBtn">검색</button>
 	</div>
-
-
 </body>
 <script>
 	document.addEventListener('DOMContentLoaded', function() {
